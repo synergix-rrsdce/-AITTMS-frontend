@@ -21,13 +21,16 @@ export default function TrainTrafficManagement() {
   const [sectionUtilization, setSectionUtilization] = useState(73)
   const [count, setActiveTrains] = useState<number | null>(null)
 
+  // lib/api.js or utils/api.js or config/api.js
+const API_BASE_URL = 'https://aittms-backend-3.onrender.com'
+
   // Weather info state variables
   const [temperature, setTemperature] = useState<number | null>(null)
   const [humidity, setHumidity] = useState<number | null>(null)
   const [precipitation, setPrecipitation] = useState<number | null>(null)
 
   useEffect(() => {
-    fetch("http://localhost:4001/api/weather")
+    fetch(`${API_BASE_URL}/api/weather`)
       .then((res) => res.json())
       .then((data) => {
         setTemperature(
