@@ -9,6 +9,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Search, Train, Clock, MapPin, Users } from "lucide-react"
 
+// lib/api.js or utils/api.js or config/api.js
+const API_BASE_URL = 'https://aittms-backend-3.onrender.com';
+
 interface TrainData {
   id: string
   name: string
@@ -34,7 +37,7 @@ export function TrainScheduleTable() {
 
   useEffect(() => {
     setLoading(true)
-    fetch("http://localhost:4001/api/trains")
+    fetch(`${API_BASE_URL}/api/trains`)
       .then((res) => res.json())
       .then((data) => {
         setTrainData(data.trains || [])
