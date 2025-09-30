@@ -57,7 +57,7 @@ const API_BASE_URL = 'https://aittms-backend-3.onrender.com'
   }, [])
 
   useEffect(() => {
-    fetch("http://localhost:4001/api/active")
+    fetch(`${API_BASE_URL}/api/active`)
       .then((res) => res.json())
       .then((data) => {
         // Example: expecting backend to return { count: 54 }
